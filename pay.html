@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio cashier · JTC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#14110e;color:#f4efe6;font:16px/1.5 Outfit,system-ui,sans-serif;padding:24px}
+  .card{width:min(440px,100%);background:#1c1916;border:1px solid #3a332b;border-radius:18px;padding:28px}
+  h1{font:600 2.2rem "Cormorant Garamond",Georgia,serif;margin:0 0 8px}
+  .gold{color:#c6a15b;letter-spacing:.18em;font-size:.72rem;text-transform:uppercase}
+  button{width:100%;margin-top:18px;background:#c6a15b;color:#14110e;border:0;border-radius:999px;padding:14px;font:600 1rem Outfit,sans-serif;cursor:pointer}
+  button:disabled{opacity:.6}
+  .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #3a332b}
+  .err{color:#e7b4a8}
+  a{color:#c6a15b}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="gold">Jimson Tailoring Co.</div>
+    <h1>Studio cashier</h1>
+    <p id="lead">This is the demo till. No card is charged. When a Paystack live key is set, customers skip this page and pay on Paystack.</p>
+    <div id="box">Loading payment…</div>
+    <button id="go" disabled>Confirm this payment</button>
+    <p id="msg"></p>
+  </div>
+<script>
+const q = new URLSearchParams(location.search);
+const orderId = (q.get("order") || "").toUpperCase();
+const ref = q.get("ref") || "";
+const N = n => "₦" + Math.round(n).toLocaleString("en-NG");
+const box = document.getElementById("box");
+const go = document.getElementById("go");
+const msg = document.getElementById("msg");
+if (!orderId || !ref) { box.textContent = "Missing payment reference."; }
+else {
+  box.innerHTML = `<div class="row"><span>Order</span><b>${orderId}</b></div><div class="row"><span>Reference</span><b style="font-size:.8rem">${ref}</b></div>`;
+  go.disabled = false;
+}
+go.onclick = async () => {
+  go.disabled = true; go.textContent = "Confirming…";
+  try {
+    const r = await fetch("/api/pay/confirm", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ orderId, ref }) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error || "Could not confirm");
+    msg.textContent = "Payment recorded. Taking you to your order…";
+    setTimeout(() => { location.href = "/?order=" + j.orderId + "&phone=" + encodeURIComponent(j.phone || "") + "#/track"; }, 700);
+  } catch (e) {
+    msg.className = "err"; msg.textContent = e.message; go.disabled = false; go.textContent = "Confirm this payment";
+  }
+};
+</script>
+</body>
+</html>

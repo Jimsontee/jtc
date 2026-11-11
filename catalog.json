@@ -1,0 +1,754 @@
+[
+  {
+    "id": 0,
+    "name": "Classic Senator Set",
+    "cat": "Senator",
+    "price": 45000,
+    "c": "#1f2a4a",
+    "badge": "Bestseller",
+    "fabric": "Premium polish cotton",
+    "lead": "7–10 days",
+    "featured": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "Navy senator tunic and trousers with a clean chest panel, bone buttons and a sharp side slit. Cut for owambe weekends and Sunday service.",
+    "img": "assets/products/classic-senator-set.svg",
+    "stock": 14,
+    "rating": 4.9,
+    "season": "All season",
+    "colors": [
+      {
+        "name": "Navy",
+        "hex": "#1f2a4a"
+      },
+      {
+        "name": "Black",
+        "hex": "#161616"
+      },
+      {
+        "name": "Forest",
+        "hex": "#1d3328"
+      }
+    ],
+    "details": [
+      "Bone buttons",
+      "Clean chest panel",
+      "Side slit"
+    ],
+    "care": "Dry clean. Steam the sleeve, do not wring.",
+    "sku": "JTC-001"
+  },
+  {
+    "id": 1,
+    "name": "Cream Senator Set",
+    "cat": "Senator",
+    "price": 48000,
+    "c": "#cbbf9f",
+    "badge": "Wedding",
+    "fabric": "Cream wash cotton",
+    "lead": "7–10 days",
+    "featured": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "Soft cream senator with tonal stitching. The set couples wear when the brief is quiet luxury, not loud print.",
+    "img": "assets/products/cream-senator-set.svg",
+    "stock": 9,
+    "rating": 4.8,
+    "season": "Wedding",
+    "colors": [
+      {
+        "name": "Cream",
+        "hex": "#cbbf9f"
+      },
+      {
+        "name": "Ivory",
+        "hex": "#efe6d4"
+      }
+    ],
+    "details": [
+      "Tonal stitching",
+      "Soft drape",
+      "Couple-ready"
+    ],
+    "care": "Dry clean only.",
+    "sku": "JTC-002"
+  },
+  {
+    "id": 2,
+    "name": "Royal Agbada",
+    "cat": "Agbada",
+    "price": 120000,
+    "c": "#5b3a29",
+    "badge": "Atelier",
+    "fabric": "Guinea brocade",
+    "lead": "14–21 days",
+    "featured": true,
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "Three-piece agbada: flowing outer robe, fitted inner buba and sokoto. Wide sleeves, structured shoulder and a matching fila.",
+    "img": "assets/products/royal-agbada-3-piece.svg",
+    "stock": 6,
+    "rating": 4.9,
+    "season": "Ceremony",
+    "colors": [
+      {
+        "name": "Cocoa",
+        "hex": "#5b3a29"
+      },
+      {
+        "name": "Gold brown",
+        "hex": "#8a6239"
+      }
+    ],
+    "details": [
+      "Three pieces",
+      "Matching fila",
+      "Wide sleeve"
+    ],
+    "care": "Dry clean. Hang on a wide shoulder.",
+    "sku": "JTC-003"
+  },
+  {
+    "id": 3,
+    "name": "Embroidered Agbada",
+    "cat": "Agbada",
+    "price": 150000,
+    "c": "#3a2a1c",
+    "badge": "Limited",
+    "fabric": "Hand-embroidered brocade",
+    "lead": "21–28 days",
+    "featured": true,
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "A ceremony agbada with hand-finished embroidery along the neck, chest and sleeve. Made to your measurements only.",
+    "img": "assets/products/embroidered-agbada.svg",
+    "stock": 3,
+    "rating": 5,
+    "season": "Limited",
+    "colors": [
+      {
+        "name": "Espresso",
+        "hex": "#3a2a1c"
+      },
+      {
+        "name": "Black gold",
+        "hex": "#1a140f"
+      }
+    ],
+    "details": [
+      "Hand embroidery",
+      "Made to measure only",
+      "Neck, chest and sleeve"
+    ],
+    "care": "Specialist clean. Keep the embroidery flat.",
+    "sku": "JTC-004"
+  },
+  {
+    "id": 4,
+    "name": "Kaftan with Cap",
+    "cat": "Kaftan",
+    "price": 38000,
+    "c": "#2d3b2d",
+    "badge": "",
+    "fabric": "Soft linen blend",
+    "lead": "5–8 days",
+    "featured": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "An easy kaftan with a deep front placket and a matching cap. For Fridays, travel and late dinners.",
+    "img": "assets/products/kaftan-with-cap.svg",
+    "stock": 16,
+    "rating": 4.6,
+    "season": "Travel",
+    "colors": [
+      {
+        "name": "Olive",
+        "hex": "#2d3b2d"
+      },
+      {
+        "name": "Sand",
+        "hex": "#c2b49a"
+      },
+      {
+        "name": "Ink",
+        "hex": "#1c2430"
+      }
+    ],
+    "details": [
+      "Deep placket",
+      "Matching cap",
+      "Easy travel"
+    ],
+    "care": "Cool wash or dry clean.",
+    "sku": "JTC-005"
+  },
+  {
+    "id": 5,
+    "name": "Ankara Shirt & Trouser",
+    "cat": "Ankara",
+    "price": 32000,
+    "c": "#a8431f",
+    "badge": "Aso-ebi",
+    "fabric": "Wax print cotton",
+    "lead": "7–12 days",
+    "featured": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "A tailored shirt and trouser in a bold Ankara. Send your aso-ebi fabric or choose from the studio shelf.",
+    "img": "assets/products/ankara-shirt-and-trouser.svg",
+    "stock": 11,
+    "rating": 4.7,
+    "season": "Aso-ebi",
+    "colors": [
+      {
+        "name": "Rust",
+        "hex": "#a8431f"
+      },
+      {
+        "name": "Indigo",
+        "hex": "#1e3a5f"
+      },
+      {
+        "name": "Emerald",
+        "hex": "#1f6b45"
+      }
+    ],
+    "details": [
+      "Bring your cloth or use studio stock",
+      "Shirt and trouser",
+      "Group cutting"
+    ],
+    "care": "Cool wash inside out.",
+    "sku": "JTC-006"
+  },
+  {
+    "id": 6,
+    "name": "Two-piece Business Suit",
+    "cat": "Corporate",
+    "price": 95000,
+    "c": "#222222",
+    "badge": "Office",
+    "fabric": "Wool-blend suiting",
+    "lead": "10–14 days",
+    "featured": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "A two-piece suit with a lightly structured shoulder, two-button jacket and flat-front trouser. Built for the Ibadan work week.",
+    "img": "assets/products/two-piece-business-suit.svg",
+    "stock": 8,
+    "rating": 4.8,
+    "season": "Office",
+    "colors": [
+      {
+        "name": "Charcoal",
+        "hex": "#222222"
+      },
+      {
+        "name": "Navy",
+        "hex": "#1c2430"
+      },
+      {
+        "name": "Mid grey",
+        "hex": "#6e7278"
+      }
+    ],
+    "details": [
+      "Two-button jacket",
+      "Light shoulder",
+      "Flat-front trouser"
+    ],
+    "care": "Dry clean. Brush between wears.",
+    "sku": "JTC-007"
+  },
+  {
+    "id": 7,
+    "name": "Slim-fit Shirt",
+    "cat": "Corporate",
+    "price": 18000,
+    "c": "#7d8fa8",
+    "badge": "",
+    "fabric": "Cotton poplin",
+    "lead": "4–6 days",
+    "featured": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "A crisp slim shirt with a spread collar and a precise sleeve. Order a set of three and we cut them as a wardrobe.",
+    "img": "assets/products/slim-fit-shirt.svg",
+    "stock": 22,
+    "rating": 4.5,
+    "season": "Wardrobe",
+    "colors": [
+      {
+        "name": "Sky",
+        "hex": "#7d8fa8"
+      },
+      {
+        "name": "White",
+        "hex": "#f4f1ea"
+      },
+      {
+        "name": "Pale blue",
+        "hex": "#d5e2ea"
+      }
+    ],
+    "details": [
+      "Spread collar",
+      "Slim body",
+      "Precise sleeve"
+    ],
+    "care": "Machine wash cold. Hang dry.",
+    "sku": "JTC-008"
+  },
+  {
+    "id": 8,
+    "name": "Casual Polo",
+    "cat": "Casual",
+    "price": 14000,
+    "c": "#35566e",
+    "badge": "",
+    "fabric": "Pique cotton",
+    "lead": "4–6 days",
+    "featured": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "A soft everyday polo with a tailored waist. Weekend uniform, still finished like a shirt from the bench.",
+    "img": "assets/products/casual-polo.svg",
+    "stock": 18,
+    "rating": 4.4,
+    "season": "Weekend",
+    "colors": [
+      {
+        "name": "Harbour",
+        "hex": "#35566e"
+      },
+      {
+        "name": "Stone",
+        "hex": "#b7a48a"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1612"
+      }
+    ],
+    "details": [
+      "Pique cotton",
+      "Tailored waist",
+      "Soft collar"
+    ],
+    "care": "Cool wash. Reshape while damp.",
+    "sku": "JTC-009"
+  },
+  {
+    "id": 9,
+    "name": "Bespoke Cap",
+    "cat": "Accessories",
+    "price": 6000,
+    "c": "#6a4a2b",
+    "badge": "",
+    "fabric": "Your cloth or studio stock",
+    "lead": "2–4 days",
+    "featured": false,
+    "sizes": [
+      "One size"
+    ],
+    "desc": "A handmade fila or English cap in the fabric of the outfit it accompanies.",
+    "img": "assets/products/bespoke-cap.svg",
+    "stock": 20,
+    "rating": 4.6,
+    "season": "Finish",
+    "colors": [
+      {
+        "name": "Tan",
+        "hex": "#6a4a2b"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1612"
+      },
+      {
+        "name": "Wine",
+        "hex": "#6e2f3a"
+      }
+    ],
+    "details": [
+      "Fila or English cap",
+      "Cut from the outfit cloth"
+    ],
+    "care": "Spot clean. Stuff with tissue.",
+    "sku": "JTC-010"
+  },
+  {
+    "id": 10,
+    "name": "Leather Belt",
+    "cat": "Accessories",
+    "price": 8500,
+    "c": "#2a1f16",
+    "badge": "",
+    "fabric": "Full-grain leather",
+    "lead": "3–5 days",
+    "featured": false,
+    "sizes": [
+      "32",
+      "34",
+      "36",
+      "38",
+      "40"
+    ],
+    "desc": "A lined leather belt with a brushed buckle, punched to your waist.",
+    "img": "assets/products/leather-belt.svg",
+    "stock": 15,
+    "rating": 4.5,
+    "season": "Finish",
+    "colors": [
+      {
+        "name": "Espresso",
+        "hex": "#2a1f16"
+      },
+      {
+        "name": "Black",
+        "hex": "#111111"
+      },
+      {
+        "name": "Cognac",
+        "hex": "#8a4b2a"
+      }
+    ],
+    "details": [
+      "Full-grain leather",
+      "Brushed buckle",
+      "Punched to your waist"
+    ],
+    "care": "Condition the leather twice a year.",
+    "sku": "JTC-011"
+  },
+  {
+    "id": 11,
+    "name": "Pocket Square Set",
+    "cat": "Accessories",
+    "price": 5000,
+    "c": "#8a2d3a",
+    "badge": "",
+    "fabric": "Silk blend",
+    "lead": "Ready",
+    "featured": false,
+    "sizes": [
+      "One size"
+    ],
+    "desc": "Three pocket squares: ivory, wine and a print that sits cleanly against navy and black suiting.",
+    "img": "assets/products/pocket-square-set.svg",
+    "stock": 24,
+    "rating": 4.3,
+    "season": "Finish",
+    "colors": [
+      {
+        "name": "Wine",
+        "hex": "#8a2d3a"
+      },
+      {
+        "name": "Ivory",
+        "hex": "#f3eee6"
+      },
+      {
+        "name": "Navy",
+        "hex": "#1f2a4a"
+      }
+    ],
+    "details": [
+      "Set of three",
+      "Silk blend",
+      "Sits clean on navy"
+    ],
+    "care": "Steam. Do not wash.",
+    "sku": "JTC-012"
+  },
+  {
+    "id": 12,
+    "name": "Ivory Wedding Agbada",
+    "cat": "Agbada",
+    "price": 185000,
+    "c": "#e6dcc8",
+    "badge": "Groom",
+    "fabric": "Ivory guinea with gold thread",
+    "lead": "21–30 days",
+    "featured": true,
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "The groom's agbada: ivory ground, gold thread at the neck and a fila cut from the same cloth. Book a fitting before the aso-ebi is locked.",
+    "img": "assets/products/ivory-wedding-agbada.svg",
+    "stock": 2,
+    "rating": 5,
+    "season": "Groom",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#e6dcc8"
+      },
+      {
+        "name": "Gold ivory",
+        "hex": "#f0e2c4"
+      }
+    ],
+    "details": [
+      "Gold thread",
+      "Matching fila",
+      "Book the fitting first"
+    ],
+    "care": "Specialist clean. Store in a breathable bag.",
+    "sku": "JTC-013"
+  },
+  {
+    "id": 13,
+    "name": "Aso-ebi Senator",
+    "cat": "Senator",
+    "price": 42000,
+    "c": "#6e2f3a",
+    "badge": "Group order",
+    "fabric": "Client aso-ebi",
+    "lead": "10–16 days",
+    "featured": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "One pattern, many bodies. Send the party size and we batch-cut senators so the group still looks individually fitted.",
+    "img": "assets/products/aso-ebi-senator.svg",
+    "stock": 10,
+    "rating": 4.7,
+    "season": "Group",
+    "colors": [
+      {
+        "name": "Wine",
+        "hex": "#6e2f3a"
+      },
+      {
+        "name": "Royal",
+        "hex": "#1f2a4a"
+      },
+      {
+        "name": "Emerald",
+        "hex": "#1d4a38"
+      }
+    ],
+    "details": [
+      "One pattern, many bodies",
+      "Batch cut",
+      "Still individually fitted"
+    ],
+    "care": "Dry clean.",
+    "sku": "JTC-014"
+  },
+  {
+    "id": 14,
+    "name": "Double-breasted Suit",
+    "cat": "Corporate",
+    "price": 115000,
+    "c": "#1c2430",
+    "badge": "New",
+    "fabric": "Navy wool blend",
+    "lead": "12–16 days",
+    "featured": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "Six-button double-breasted jacket, peak lapel, and a trouser with a clean break. For introductions, court and evening.",
+    "img": "assets/products/double-breasted-suit.svg",
+    "stock": 5,
+    "rating": 4.8,
+    "season": "Evening",
+    "colors": [
+      {
+        "name": "Navy",
+        "hex": "#1c2430"
+      },
+      {
+        "name": "Black",
+        "hex": "#141414"
+      }
+    ],
+    "details": [
+      "Peak lapel",
+      "Six-button double breast",
+      "Clean break"
+    ],
+    "care": "Dry clean. Use a wide hanger.",
+    "sku": "JTC-015"
+  },
+  {
+    "id": 15,
+    "name": "Stone Linen Kaftan",
+    "cat": "Kaftan",
+    "price": 41000,
+    "c": "#b7a48a",
+    "badge": "New",
+    "fabric": "Stone linen",
+    "lead": "6–9 days",
+    "featured": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "A breathable linen kaftan in stone, with a hidden placket and a side vent that moves in Harmattan heat.",
+    "img": "assets/products/stone-linen-kaftan.svg",
+    "stock": 12,
+    "rating": 4.6,
+    "season": "Harmattan",
+    "colors": [
+      {
+        "name": "Stone",
+        "hex": "#b7a48a"
+      },
+      {
+        "name": "Chalk",
+        "hex": "#e7e0d4"
+      },
+      {
+        "name": "Olive",
+        "hex": "#6d7052"
+      }
+    ],
+    "details": [
+      "Hidden placket",
+      "Side vent",
+      "Breathable linen"
+    ],
+    "care": "Cool wash. Expect a soft crease.",
+    "sku": "JTC-016"
+  },
+  {
+    "id": 16,
+    "name": "Adire Camp Shirt",
+    "cat": "Ankara",
+    "price": 28000,
+    "c": "#1e3a5f",
+    "badge": "",
+    "fabric": "Indigo adire",
+    "lead": "7–10 days",
+    "featured": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "desc": "An indigo adire camp-collar shirt. Wear it open over a plain tee or buttoned under a blazer.",
+    "img": "assets/products/adire-camp-shirt.svg",
+    "stock": 9,
+    "rating": 4.7,
+    "season": "Indigo",
+    "colors": [
+      {
+        "name": "Indigo",
+        "hex": "#1e3a5f"
+      },
+      {
+        "name": "Deep indigo",
+        "hex": "#14243d"
+      }
+    ],
+    "details": [
+      "Camp collar",
+      "Adire cotton",
+      "Open or buttoned"
+    ],
+    "care": "Wash cold separately the first time.",
+    "sku": "JTC-017"
+  },
+  {
+    "id": 17,
+    "name": "Velvet Fila",
+    "cat": "Accessories",
+    "price": 7500,
+    "c": "#4a1c2a",
+    "badge": "",
+    "fabric": "Cotton velvet",
+    "lead": "3–5 days",
+    "featured": false,
+    "sizes": [
+      "One size"
+    ],
+    "desc": "A structured velvet fila in wine. The finish piece for agbada and senator sets.",
+    "img": "assets/products/velvet-fila.svg",
+    "stock": 13,
+    "rating": 4.5,
+    "season": "Finish",
+    "colors": [
+      {
+        "name": "Wine",
+        "hex": "#4a1c2a"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a120f"
+      },
+      {
+        "name": "Forest",
+        "hex": "#1d3328"
+      }
+    ],
+    "details": [
+      "Structured crown",
+      "Cotton velvet",
+      "Pairs with agbada"
+    ],
+    "care": "Steam from the inside. Do not crush.",
+    "sku": "JTC-018"
+  }
+]

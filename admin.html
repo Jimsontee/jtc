@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio desk · JTC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #100e0c; color: #f3eee6; font: 15px/1.5 Outfit, system-ui, sans-serif; }
+  header, main { width: min(1100px, calc(100% - 32px)); margin: auto; }
+  header { display: flex; justify-content: space-between; gap: 16px; align-items: end; padding: 28px 0 12px; }
+  h1 { font: 600 3rem "Cormorant Garamond", Georgia, serif; margin: 0; }
+  a { color: #c6a15b; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  input, select, button { font: inherit; padding: 10px 12px; border-radius: 10px; border: 1px solid #3a332b; background: #1c1916; color: inherit; }
+  button { background: #c6a15b; color: #14110e; border: 0; cursor: pointer; font-weight: 600; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0; }
+  .stat, .o { background: #1c1916; border: 1px solid #3a332b; border-radius: 14px; padding: 14px; }
+  .stat b { display: block; font: 600 1.8rem "Cormorant Garamond", Georgia, serif; }
+  .tabs { display: flex; gap: 8px; margin: 8px 0 14px; }
+  .tabs button.ghost { background: transparent; color: #f3eee6; border: 1px solid #3a332b; }
+  .tabs button.on { background: #c6a15b; color: #14110e; }
+  .o { margin: 10px 0; }
+  .mut { color: #b3a898; }
+  .ok { color: #8dcea8; }
+  @media (max-width: 800px) { .stats { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="mut">Jimson Tailoring Co.</div>
+    <h1>Studio desk</h1>
+  </div>
+  <div class="row">
+    <input id="k" type="password" placeholder="Admin key">
+    <button id="go">Open desk</button>
+    <a href="/">Back to shop</a>
+  </div>
+</header>
+<main>
+  <div class="stats" id="stats"></div>
+  <div class="tabs">
+    <button class="on" data-tab="orders">Orders</button>
+    <button class="ghost" data-tab="due">Due soon</button>
+    <button class="ghost" data-tab="book">Fittings</button>
+    <button class="ghost" data-tab="req">Atelier</button>
+    <button class="ghost" data-tab="mail">List</button>
+    <button class="ghost" data-tab="stock">Stock</button>
+  </div>
+  <div id="out">Enter the admin key. The local default is jtc-atelier-2026.</div>
+</main>
+<script>
+const N = (n) => "₦" + Math.round(+n || 0).toLocaleString("en-NG");
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const S = ["Received", "Cutting", "Sewing", "Finishing", "Ready", "Delivered"];
+const H = () => ({ "x-admin-key": k.value, "Content-Type": "application/json" });
+let tab = "orders";
+let cache = {};
+if (sessionStorage.jtcAdmin) k.value = sessionStorage.jtcAdmin;
+
+async function load() {
+  sessionStorage.jtcAdmin = k.value;
+  const head = { headers: H() };
+  const grab = async (url) => {
+    const r = await fetch(url, head);
+    if (r.status === 401) throw new Error("That key was refused.");
+    if (!r.ok) throw new Error("Could not load the desk.");
+    return r.json();
+  };
+  const [stats, orders, due, book, req, mail, stock] = await Promise.all([
+    grab("/api/admin/stats"), grab("/api/admin/orders"), grab("/api/admin/due"),
+    grab("/api/admin/appointments"), grab("/api/admin/requests"), grab("/api/admin/subscribers"),
+    grab("/api/admin/inventory"),
+  ]);
+  cache = { orders, due, book, req, mail, stats, stock };
+  document.getElementById("stats").innerHTML = [
+    ["Orders", stats.orders],
+    ["Collected", N(stats.paid)],
+    ["Still open", N(stats.due)],
+    ["Low stock", stats.lowStock + " · sold out " + stats.soldOut],
+  ].map(([a, b]) => `<div class="stat"><span class="mut">${a}</span><b>${b}</b></div>`).join("");
+  paint();
+}
+function paint() {
+  if (tab === "orders") {
+    out.innerHTML = (cache.orders || []).map((o) => `<article class="o">
+      <b>#${esc(o.id)}</b> ${esc(o.name)} · <a href="tel:${esc(o.phone)}">${esc(o.phone)}</a> · ${esc(o.email)}<br>
+      ${N(o.total)} · <b>${esc(o.status)}</b> · ${esc(o.deliveryLabel || "")} ${esc(o.address || "")}<br>
+      <span class="mut">${o.items.map((i) => `${esc(i.name)} (${esc(i.color || "")} ${esc(i.size)}) ×${i.qty}`).join(" · ")}</span><br>
+      ${o.schedule.map((i) => `${N(i.amount)} ${i.paid ? '<span class="ok">paid</span>' : "due " + esc(i.due)}`).join(" · ")}
+      ${o.discount ? `<br>Courtesy ${esc(o.promo || "")} −${N(o.discount)}` : ""}
+      ${o.note ? `<br><span class="mut">${esc(o.note)}</span>` : ""}
+      <div class="row" style="margin-top:8px">
+        <select data-stage="${esc(o.id)}">${S.map((s) => `<option ${s === o.stage ? "selected" : ""}>${s}</option>`).join("")}</select>
+        <button data-paid="${esc(o.id)}">Mark next payment received</button>
+      </div>
+    </article>`).join("") || "<p>No orders yet.</p>";
+  } else if (tab === "due") {
+    out.innerHTML = (cache.due || []).map((x) => `<article class="o">${esc(x.name)} · order ${esc(x.order)} · payment ${x.installment} · ${N(x.amount)} · due ${esc(x.due)} · <a target="_blank" href="https://wa.me/${esc(String(x.phone).replace(/^0/, "234"))}">WhatsApp</a></article>`).join("") || "<p>Nothing due in the next three days.</p>";
+  } else if (tab === "book") {
+    out.innerHTML = (cache.book || []).map((a) => `<article class="o"><b>${esc(a.date)} ${esc(a.time)}</b> · ${esc(a.service)}<br>${esc(a.name)} · ${esc(a.phone)}<br><span class="mut">${esc(a.note || "")}</span></article>`).join("") || "<p>No fittings requested.</p>";
+  } else if (tab === "req") {
+    out.innerHTML = (cache.req || []).map((a) => `<article class="o"><b>${esc(a.style)}</b> · ${esc(a.name)} · ${esc(a.phone)}<br>${esc(a.fabric || "")} · needed ${esc(a.needed || "—")} · ${esc(a.payment || "")}<br><span class="mut">${esc(Object.entries(a.measures || {}).map(([k, v]) => k + " " + v).join(" · "))}</span><br>${esc(a.notes || "")}</article>`).join("") || "<p>No atelier briefs yet.</p>";
+  } else if (tab === "mail") {
+    out.innerHTML = (cache.mail || []).map((s) => `<article class="o">${esc(s.email)}</article>`).join("") || "<p>No subscribers yet.</p>";
+  } else {
+    out.innerHTML = (cache.stock || []).map((p) => `<article class="o"><b>${esc(p.name)}</b> · ${esc(p.cat)}<div class="row" style="margin-top:8px"><input data-stock="${p.id}" type="number" min="0" max="500" value="${p.stock}" style="width:120px"><button data-save-stock="${p.id}">Save stock</button></div></article>`).join("");
+  }
+}
+document.querySelectorAll(".tabs button").forEach((b) => b.onclick = () => {
+  tab = b.dataset.tab;
+  document.querySelectorAll(".tabs button").forEach((x) => x.classList.toggle("on", x === b));
+  if (cache.orders) paint();
+});
+go.onclick = () => load().catch((e) => { out.textContent = e.message; });
+out.onclick = async (e) => {
+  const save = e.target.dataset && e.target.dataset.saveStock;
+  if (save) {
+    const input = out.querySelector(`[data-stock="${save}"]`);
+    const r = await fetch("/api/admin/inventory/" + save, { method: "PATCH", headers: H(), body: JSON.stringify({ stock: input.value }) });
+    if (!r.ok) return alert((await r.json()).error || "Could not save stock");
+    return load();
+  }
+  const paid = e.target.dataset && e.target.dataset.paid;
+  if (!paid) return;
+  const r = await fetch("/api/admin/orders/" + paid + "/mark-paid", { method: "POST", headers: H() });
+  if (!r.ok) return alert((await r.json()).error || "Could not mark it");
+  load();
+};
+out.onchange = async (e) => {
+  const stage = e.target.dataset && e.target.dataset.stage;
+  if (!stage) return;
+  const r = await fetch("/api/admin/orders/" + stage, { method: "PATCH", headers: H(), body: JSON.stringify({ stage: e.target.value }) });
+  if (!r.ok) { alert((await r.json()).error || "Could not move the stage"); load(); }
+};
+k.addEventListener("keydown", (e) => { if (e.key === "Enter") go.click(); });
+</script>
+</body>
+</html>
